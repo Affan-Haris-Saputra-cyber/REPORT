@@ -1,0 +1,238 @@
+Perihal: Laporan Kerentanan Keamanan Siber (Responsible Disclosure)
+Sifat  : Rahasia dan Terbatas
+
+Kepada Yth.
+[Nama Tim/Unit Terkait — mis. Tim CSIRT / Tim Keamanan Informasi / Pengelola Infrastruktur TIK]
+[Nama Instansi/Perusahaan]
+di [Kota/Provinsi]
+
+Dengan hormat,
+
+Perkenalkan, saya [Nama Lengkap], seorang peneliti keamanan siber independen
+(*independent security researcher*). Melalui surat ini, saya bermaksud
+menyampaikan laporan mengenai temuan kerentanan keamanan bertipe
+**[jenis kerentanan, mis. Information Disclosure]**, yaitu berupa
+[deskripsi singkat temuan dalam satu-dua kalimat], yang ditemukan pada
+[nama halaman/fitur] milik aplikasi/sistem **"[nama aplikasi]"**
+([nama instansi pemilik aplikasi]).
+
+Laporan ini saya sampaikan secara sukarela dan bertanggung jawab
+(*Responsible Disclosure*), semata-mata dengan tujuan membantu menjaga
+keamanan data dan infrastruktur digital Bapak/Ibu, sebelum informasi ini
+berpotensi disalahgunakan oleh pihak yang tidak bertanggung jawab.
+
+---
+
+## I. RINGKASAN TEMUAN
+
+| Keterangan                | Detail                                             |
+|----------------------------|-----------------------------------------------------|
+| Nama Aplikasi/Sistem       | [nama aplikasi]                                     |
+| Domain yang Terpengaruh    | [https://domain-terkait.go.id]                      |
+| Endpoint/Halaman Terdampak | [/path/endpoint/ — deskripsi singkat halaman]       |
+| Tanggal Temuan             | [DD Bulan YYYY]                                     |
+| Tanggal Pelaporan          | [DD Bulan YYYY]                                     |
+| Jenis Kerentanan           | [nama kerentanan lengkap]                           |
+| Kategori CWE               | CWE-[nomor] — [nama CWE]                            |
+| Tingkat Dampak             | [Rendah / Sedang / Tinggi / Kritis]                 |
+| Skor CVSS v3.1             | [skor] ([vector string])                            |
+| Status Eksploitasi         | [Belum dieksploitasi lebih lanjut / PoC terbatas]   |
+
+---
+
+## II. DESKRIPSI KERENTANAN
+
+[Jelaskan secara naratif dan sistematis kondisi yang ditemukan: apa yang
+terjadi saat endpoint/fitur tersebut diakses atau diberikan input
+tertentu, bagaimana perilaku sistem menyimpang dari yang seharusnya, dan
+mengapa hal ini dapat dikategorikan sebagai kerentanan. Sertakan konteks
+teknis pendukung seperti framework, versi perangkat lunak, atau
+konfigurasi yang teridentifikasi bermasalah.]
+
+Berdasarkan hasil pengujian, [pesan/informasi/respons] yang muncul
+membocorkan informasi teknis internal aplikasi, di antaranya:
+
+- **[Item temuan 1]** — mis. jalur direktori lengkap (*full path*) server
+  `[detail path/nilai]`
+  *(Risiko: [penjelasan singkat risiko dari item ini])*
+- **[Item temuan 2]** — mis. struktur arsitektur MVC / nama controller
+  yang terekspos
+- **[Item temuan 3]** — mis. nama framework dan versi yang digunakan
+- **[Item temuan 4]** — mis. properti/objek internal aplikasi yang
+  seharusnya tidak dapat diakses publik
+
+[Apabila ditemukan indikasi tambahan yang lebih signifikan, jelaskan di
+sini, misalnya peringatan terkait konfigurasi session atau keamanan
+lainnya:]
+
+- "[cuplikan pesan/peringatan 1]"
+- "[cuplikan pesan/peringatan 2]"
+- "[cuplikan pesan/peringatan 3]"
+
+[Jelaskan akar penyebab teknis (*root cause*) serta dampaknya terhadap
+keamanan aplikasi secara keseluruhan, misalnya kegagalan penerapan
+konfigurasi cookie/session yang aman akibat kondisi tertentu pada
+lingkungan produksi.]
+
+---
+
+## III. BUKTI TEKNIS / PROOF OF CONCEPT (PoC)
+
+**Metode Pengujian:** [mis. pengamatan langsung melalui browser, pengujian
+manual pada parameter tertentu, dsb. — tanpa eksploitasi lanjutan]
+
+**URL PoC:**
+`[URL lengkap endpoint yang diuji]`
+
+**Langkah Reproduksi:**
+1. [Langkah 1 — mis. akses URL/endpoint berikut]
+2. [Langkah 2 — mis. lakukan aksi/input tertentu]
+3. [Langkah 3 — mis. amati respons/pesan yang muncul]
+
+**Cuplikan [jenis bukti 1 — mis. Error Log/Response]:**
+```
+[Tempelkan cuplikan log/error/response yang relevan di sini]
+
+Backtrace:
+File     : [path file]
+Line     : [nomor baris]
+Function : [nama fungsi]
+```
+
+**Cuplikan [jenis bukti 2]:**
+```
+[Tempelkan cuplikan log/error/response yang relevan di sini]
+
+Backtrace:
+File     : [path file]
+Line     : [nomor baris]
+Function : [nama fungsi]
+```
+
+[Ringkasan skala/dampak temuan secara kuantitatif, misalnya jumlah baris
+informasi sensitif yang muncul dalam satu kali akses, atau frekuensi
+kemunculan kerentanan tersebut.]
+
+Bukti tangkapan layar (*screenshot*) temuan terlampir pada bagian
+Lampiran surat ini.
+*(Lihat Lampiran 1: nama_file_poc.png)*
+
+---
+
+## IV. ANALISIS RISIKO DAN URGENSI PERBAIKAN
+
+1. **[Judul alasan 1]**
+   [Uraian risiko/alasan mengapa temuan ini penting untuk segera
+   ditindaklanjuti.]
+
+2. **[Judul alasan 2]**
+   [Uraian risiko/alasan.]
+
+3. **[Judul alasan 3]**
+   [Uraian risiko/alasan, sebutkan bagian yang perlu diverifikasi lebih
+   lanjut oleh tim internal apabila diperlukan.]
+
+4. **[Judul alasan 4]**
+   [Uraian risiko/alasan, kaitkan dengan tingkat kekritisan posisi
+   endpoint dalam keseluruhan alur aplikasi/bisnis.]
+
+---
+
+## V. POTENSI DAMPAK APABILA TIDAK DITANGANI
+
+1. **[Judul dampak 1]**
+   [Uraian dampak terhadap sistem, data, atau pengguna.]
+
+2. **[Judul dampak 2]**
+   [Uraian dampak.]
+
+3. **[Judul dampak 3]**
+   [Uraian dampak, termasuk potensi eskalasi ke risiko yang lebih besar
+   apabila digabungkan dengan kerentanan lain.]
+
+**Referensi Standar Keamanan:**
+- CWE-[nomor]: [nama CWE] — https://cwe.mitre.org/data/definitions/[nomor].html
+- CWE-[nomor]: [nama CWE tambahan, jika ada]
+- OWASP Top 10 [kode]:[tahun] — [nama kategori] — https://owasp.org/Top10/[kode]_[tahun]-[slug]/
+- OWASP Top 10 [kode]:[tahun] — [nama kategori tambahan, jika ada]
+
+---
+
+## VI. REKOMENDASI PERBAIKAN
+
+1. **[Rekomendasi 1 — prioritas segera]**
+   [Detail/contoh implementasi, jika ada:]
+   ```
+   [contoh kode/konfigurasi yang disarankan]
+   ```
+
+2. **[Rekomendasi 2]**
+   [Detail/contoh implementasi:]
+   ```
+   [contoh kode/konfigurasi yang disarankan]
+   ```
+
+3. **[Rekomendasi 3 — prioritas tinggi]**
+   [Detail langkah perbaikan.]
+
+4. **[Rekomendasi jangka menengah]** — mis. audit menyeluruh atau
+   pembaruan (*upgrade*) komponen/pustaka yang digunakan
+
+5. **[Rekomendasi pencegahan tambahan]** — mis. penerapan *security
+   header*, pembatasan akses, atau pemantauan berkala
+
+6. **[Rekomendasi audit lanjutan]** — mis. audit keamanan menyeluruh
+   pada sistem atau lingkungan terkait lainnya
+
+---
+
+## VII. PERNYATAAN ETIKA PENELITIAN
+
+Dengan ini saya menyatakan dengan penuh tanggung jawab bahwa:
+
+- Pengujian hanya dilakukan dengan metode **[metode pengujian yang
+  dilakukan]**, tanpa mencoba kredensial milik pihak lain maupun
+  melakukan eksploitasi lanjutan (*further exploitation*) dalam bentuk
+  apa pun.
+- Tidak ada data milik pengguna maupun sistem yang diubah, dihapus,
+  disalin, atau disebarluaskan selama proses penelitian berlangsung.
+- Laporan ini disampaikan pertama kali dan secara eksklusif kepada
+  [nama instansi], sebelum informasi ini disebarluaskan atau
+  dipublikasikan kepada pihak mana pun (*coordinated disclosure*).
+- Saya bersedia menjaga kerahasiaan temuan ini hingga perbaikan
+  dinyatakan selesai oleh pihak [nama instansi], atau hingga disepakati
+  tenggat waktu pengungkapan bersama (*disclosure timeline*).
+
+---
+
+## VIII. PERMOHONAN TINDAK LANJUT
+
+Sehubungan dengan laporan ini, saya dengan hormat memohon kesediaan
+Bapak/Ibu untuk:
+
+1. Memberikan konfirmasi penerimaan laporan ini dalam waktu yang wajar.
+2. Melakukan verifikasi teknis atas temuan yang telah disampaikan.
+3. Menindaklanjuti perbaikan sesuai dengan rekomendasi yang diberikan.
+4. Memberikan sertifikat penghargaan atau surat apresiasi resmi
+   (*Letter of Appreciation*) sebagai bentuk pengakuan atas kontribusi
+   penelitian keamanan ini, apabila berkenan.
+
+Saya sepenuhnya bersedia untuk dihubungi kembali guna keperluan
+verifikasi teknis lebih lanjut maupun koordinasi proses perbaikan.
+
+Demikian laporan ini saya sampaikan. Atas perhatian dan kerja sama
+Bapak/Ibu, saya ucapkan terima kasih.
+
+Hormat saya,
+
+
+[Nama Lengkap]
+[Nomor Telepon/WhatsApp]
+[Alamat Email]
+[Tautan Profil — LinkedIn/GitHub, opsional]
+
+---
+
+**Lampiran:**
+1. [nama_file_lampiran1.png] — [deskripsi singkat bukti, mis. tangkapan layar respons error]
+2. [nama_file_lampiran2.png] — [deskripsi singkat bukti tambahan, jika ada]
